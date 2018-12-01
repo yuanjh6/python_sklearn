@@ -11,7 +11,7 @@ load_data=datasets.load_digits()
 data_x=load_data.data
 data_y=load_data.target
 print len(data_x),len(data_y)
-train_sizes,train_loss,test_loss=learning_curve(SVC(gamma=0.001),data_x,data_y,cv=10,scoring='mean_squared_error',train_sizes=[0.1,0.25,0.5,0.75,1])
+train_sizes,train_loss,test_loss=learning_curve(SVC(gamma=0.001),data_x,data_y,cv=10,scoring='mean_squared_error',train_sizes=np.linspace(0.05,1,10))
 
 train_loss_mean=np.mean(-train_loss,axis=1)
 test_loss_mean=np.mean(-test_loss,axis=1)
